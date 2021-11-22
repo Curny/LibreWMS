@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibreWMS", "LibreWMS\LibreWMS.csproj", "{5666F950-3D7A-4541-9E87-202A98B3E519}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5666F950-3D7A-4541-9E87-202A98B3E519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5666F950-3D7A-4541-9E87-202A98B3E519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5666F950-3D7A-4541-9E87-202A98B3E519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5666F950-3D7A-4541-9E87-202A98B3E519}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36D8EFCA-DF3A-484B-B29E-D5C6E6238B86}
+	EndGlobalSection
+EndGlobal
