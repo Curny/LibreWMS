@@ -5,21 +5,44 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using System.Data;
+using MySql.Data.MySqlClient;
 
-namespace FormUI
+namespace LibreWMS
 {
-    public class DataAccess
+    public class DB
     {
-        public List<Person> GetPeople(string lastName)
+
+        public List<Article> GetAllArticles()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SampleDB")))
+            using (MySqlConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
             {
-                //var output = connection.Query<Person>($"select * from People where LastName = '{ lastName }'").ToList();
-                var output = connection.Query<Person>("dbo.People_GetByLastName @LastName", new { LastName = lastName }).ToList();
+                
+                var output = connection.Query<Article>($"select * from Article").ToList();                
                 return output;
             }
         }
 
+        public List<Article> GetArticleByNamePart(string name)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
+            {                
+                var output = connection.Query<Article>($"select * from Article where ArticleName like '%{ name }%'").ToList();
+                //TODO with procedure: var output = connection.Query<Article>("dbo.GetArticle @ArticleName", new { ArticleName = name }).ToList();
+                return output;
+            }
+        }
+
+        public List<Article> GetArticleByExactName(string name)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
+            {            
+                var output = connection.Query<Article>($"select * from Article where ArticleName = '{ name }'").ToList();
+                //TODO with procedure: var output = connection.Query<Article>("dbo.GetArticle @ArticleName", new { ArticleName = name }).ToList();
+                return output;
+            }
+        }
+
+        /* TODO
         public void InsertPerson(string firstName, string lastName, string emailAddress, string phoneNumber)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SampleDB")))
@@ -33,5 +56,6 @@ namespace FormUI
 
             }
         }
+        */
     }
 }
