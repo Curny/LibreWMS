@@ -8,11 +8,9 @@ namespace LibreWMS
         public static string[] Menu_Main = new string[]
         {
             "Search",
-            "List",
             "Book",
             "Articles",
             "System",
-            "About",
             "Quit"
 
         };
@@ -27,6 +25,7 @@ namespace LibreWMS
 
         public static string[] Menu_Search = new string[]
         {
+            "List all articles",
             "Search by parameter",
             "Set search parameter",
             "Set amount of returned lines",

@@ -27,6 +27,36 @@ namespace LibreWMS
             }
         }
 
+        public string StockInfo1
+        {
+            get
+            {
+                
+                string cutArtName = string.Empty;
+
+                if (ArticleName.Length < 15)
+                {
+                    int add = 15 - ArticleName.Length;
+                    cutArtName = ArticleName;
+                    for (int i = ArticleName.Length; i <= 15; i++)
+                    {
+                        cutArtName += " ";
+                    }
+                }
+                else if (ArticleName.Length > 15)
+                {
+                    cutArtName = ArticleName[0..14] + "...";
+                }
+                                
+                string output = $" | { ArticleNumber.ToString("00000000") } | { cutArtName } " 
+                        + $"| { string.Format("0000000000000", ArticleEANGTIN) } | { ArticleAmountInStock }\t "
+                        + $"| { ArticleStockPlace }\t | { ArticleWeightGross } kg\t | { ArticleWeightNet } kg |"; 
+                
+                return output;
+                
+            }
+        }
+
         public string WeightInfo
         {
             get

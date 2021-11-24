@@ -1,0 +1,18 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "192.168.178.35",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "MyCloudEX2ultra",
+            "group": "LAN",
+            "database": "WWWMS1",
+            "username": "wwwmsdbuser",
+            "password": "resubdsmwww"
+        }
+    ]
+}
