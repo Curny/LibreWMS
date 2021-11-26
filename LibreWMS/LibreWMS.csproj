@@ -2,11 +2,19 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <ReleaseVersion>0.1.0.0</ReleaseVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType></DebugType>
+    <OutputPath></OutputPath>
+    <DefineConstants></DefineConstants>
+    <WarningLevel></WarningLevel>
+    <TreatWarningsAsErrors></TreatWarningsAsErrors>
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="Dapper" />
     <None Remove="System.Configuration.ConfigurationManager" />
