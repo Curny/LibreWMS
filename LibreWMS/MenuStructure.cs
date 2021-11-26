@@ -15,17 +15,11 @@ namespace LibreWMS
 
         };
 
-        public static string[] Menu_List = new string[]
-        {
-            "List all",
-            "List active",
-            "List inactive",
-            "Main menu"
-        };
-
         public static string[] Menu_Search = new string[]
         {
             "List all articles",
+            "List active",
+            "List inactive",
             "Search by parameter",
             "Set search parameter",
             "Set amount of returned lines",

@@ -16,6 +16,7 @@ namespace LibreWMS
         {
             switch (menuName)
             {
+                // ---- main menu ----
                 case "Main menu":
                 case "Main":
                     Header(menuName);
@@ -26,15 +27,7 @@ namespace LibreWMS
                     }                    
                     Menu sel = new Menu(MenuStructure.Menu_Main[MenuSelection(MenuStructure.Menu_Main.Length)]);
                     break;
-                case "List":
-                    Header(menuName);
-
-                    for (int i = 0; i < MenuStructure.Menu_List.Length; i++)
-                    {
-                        Console.WriteLine($"{ i + 1 } - { MenuStructure.Menu_List[i] }");
-                    }
-                    Menu selL = new Menu(MenuStructure.Menu_List[MenuSelection(MenuStructure.Menu_List.Length)]);
-                    break;
+              
                 case "Search":
                     Header(menuName);
 
@@ -92,8 +85,9 @@ namespace LibreWMS
                     }
                     
                     break;
+                // ==== end of main menu ====
 
-                // menu Search
+                // ---- menu search ----
                 case "List all articles":
                     List<Article> articles = new List<Article>();
                     DB db = new DB();
@@ -110,9 +104,9 @@ namespace LibreWMS
                     HitAnyKey.ToContinue();
                     Menu backToListMenu = new Menu("List");
                     break;
-                // ---- end of menu search
+                // ==== end of menu search ====
 
-                // menu System
+                // ---- menu system ----
                 case "About":
                     Header("About LibreWMS");                
                     Console.WriteLine(About.LibreWMS());
@@ -126,7 +120,7 @@ namespace LibreWMS
                     HitAnyKey.ToContinue();
                     Menu backToSystemMenu = new Menu("System");
                     break;
-                // ---- end of menu systsem
+                // ==== end of menu system ====
 
                 default:
                     Menu backToMain = new Menu("Main");
