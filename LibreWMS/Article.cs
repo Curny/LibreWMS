@@ -66,10 +66,28 @@ namespace LibreWMS
                 stockPlace += ArticleStockPlace;
                 // done
 
+                // dynamically set appropriate string length for the output-table's column of gross weight
+                string grossWeightkg = string.Empty;
+                for (int i = 0; i < (11 - ArticleWeightGross.ToString().Length); i++)
+                {
+                    grossWeightkg += " ";
+                }
+                grossWeightkg += ArticleWeightGross.ToString();
+                // done
+
+                // dynamically set appropriate string length for the output-table's column of net weight
+                string netWeightkg = string.Empty;
+                for (int i = 0; i < (11 - ArticleWeightNet.ToString().Length); i++)
+                {
+                    netWeightkg += " ";
+                }
+                netWeightkg += ArticleWeightNet.ToString();
+                // done
+
                 // generate string for the output-table (header is in Menu.cs)                
                 string output = $" | { ArticleNumber.ToString("00000000") } | { cutArtName } " 
                         + $"| { string.Format("0000000000000", ArticleEANGTIN) } | { amountInStock } "
-                        + $"| { stockPlace } | { ArticleWeightGross } kg\t | { ArticleWeightNet } kg |"; 
+                        + $"| { stockPlace } | { grossWeightkg } | { netWeightkg } |"; 
                 
                 return output;
                 

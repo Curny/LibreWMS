@@ -93,14 +93,14 @@ namespace LibreWMS
                     DB db = new DB();
                     articles = db.GetAllArticles();
                     Header(menuName);
-                    Console.WriteLine(" | Art. nr. | Art. name        | EAN / GTIN    | amnt avlble | Location         | Gross weight\t | Net weight\t |");
-                    Console.WriteLine(" |----------|------------------|---------------|-------------|------------------|----------------|-------------|");
+                    Console.WriteLine(" | Art. nr. | Art. name        | EAN / GTIN    | amnt avlble | Location         |   Gross kgs |     Net kgs |");
+                    Console.WriteLine(" |----------|------------------|---------------|-------------|------------------|-------------|-------------|");
                     foreach (var article in articles)
                     {
                         System.Console.WriteLine(article.StockInfo1);
                     }
                     
-                    System.Console.WriteLine($"\n\nTotal amount of articles in database: { articles.Count.ToString() }");
+                    System.Console.WriteLine($"\n\n\t>>> Total amount of articles in database: { articles.Count.ToString() } <<<");
                     HitAnyKey.ToContinue();
                     Menu backToListMenu = new Menu("List");
                     break;
@@ -136,15 +136,37 @@ namespace LibreWMS
 
         private static int MenuSelection(int maxNr)
         {
-            Console.Write("\n Select menu number: ");
-            string input = Console.ReadLine();
-            
-            if (!string.IsNullOrEmpty(input))
+            bool validChoice = false;
+            int choice = 0;
+            do
             {
-                int.TryParse(input, out int choice);
-                return choice - 1; 
-            }
-            return maxNr - 1;
+                Console.Write("\n Select menu number: ");
+                string input = Console.ReadLine();
+
+                if (!string.IsNullOrEmpty(input) && int.TryParse(input, out int c))
+                {
+                    validChoice = true;
+                    choice = c;
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(input))
+                    {
+                        validChoice = true;
+                        choice = maxNr;
+                    }
+                    else
+                    {
+                        validChoice = false;
+                        input = string.Empty;
+                        Console.WriteLine("\t>>> Invalid input. Repeat.");
+                    }
+                    
+                }
+            } while (!validChoice);
+            
+            return choice - 1 ;
+           
             
         }
 
