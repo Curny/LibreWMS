@@ -123,6 +123,9 @@ namespace LibreWMS
                 // ==== end of menu system ====
 
                 default:
+                    Header("THIS IS NOT IMPLEMENTED, YET!");
+                    Console.WriteLine("This functionality has not been implemented, yet.");
+                    HitAnyKey.ToContinue();
                     Menu backToMain = new Menu("Main");
                     break;
             }

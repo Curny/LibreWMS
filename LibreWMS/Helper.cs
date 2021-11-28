@@ -50,15 +50,20 @@ namespace LibreWMS
 
         public static String GetVersion()
         {
+            // --------------------------------------------------------------------------------
+            // this throws the wrong number on Mac and Linux, therefore manually below....
+            // --------------------------------------------------------------------------------
+            // Assembly assem = Assembly.GetExecutingAssembly();
+            // AssemblyName assemName = assem.GetName();
+            // Version ver = assemName.Version;
+            // return $"{ assemName.Name } { ver.ToString() }";
+            // --------------------------------------------------------------------------------
 
-            // Assembly.GetEntryAssembly().GetName().Version
-
-            Assembly assem = Assembly.GetExecutingAssembly();
-            AssemblyName assemName = assem.GetName();
-            Version ver = assemName.Version;
+            // I do this because on Mac and Linux the Version number is not displayed correctly otherwise.
+            // have to find out why later, it's not so important....
+            Version libreWMSver = new Version("0.1.0.0");
+            return $"LibreWMS { libreWMSver } PreAlpha";
             
-
-            return $"{ assemName.Name } { ver.ToString() }";
         }
     }
 
