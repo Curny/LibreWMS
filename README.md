@@ -1,7 +1,7 @@
 # LibreWMS
 a free, open, multi-platform warehouse management program in C# / .Net
 
-##IT IS IN AN EARLY DEVELOPMENT PHASE. 
+## IT IS IN AN EARLY DEVELOPMENT PHASE. 
 Pre-Alpha. Most menu entries will not work at all. Input is not properly checked and may cause runtime errors!
 At the moment I'll do it console based. Reason 1: it's quick. Reason 2: it works on Windows, Linux and MacOS without nasty adjustments :)
 
