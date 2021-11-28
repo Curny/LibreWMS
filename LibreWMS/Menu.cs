@@ -6,8 +6,6 @@ namespace LibreWMS
 
     public class Menu
     {
-        
-
         public Menu()
         {
         }
@@ -16,6 +14,7 @@ namespace LibreWMS
         {
             switch (menuName)
             {
+                #region MainMenu
                 // ---- main menu ----
                 case "Main menu":
                 case "Main":
@@ -86,7 +85,9 @@ namespace LibreWMS
                     
                     break;
                 // ==== end of main menu ====
+                #endregion
 
+                #region MenuSearch
                 // ---- menu search ----
                 case "List all articles":
                     List<Article> articles = new List<Article>();
@@ -105,7 +106,9 @@ namespace LibreWMS
                     Menu backToListMenu = new Menu("List");
                     break;
                 // ==== end of menu search ====
+                #endregion
 
+                #region MenuSystem
                 // ---- menu system ----
                 case "About":
                     Header("About LibreWMS");                
@@ -121,6 +124,7 @@ namespace LibreWMS
                     Menu backToSystemMenu = new Menu("System");
                     break;
                 // ==== end of menu system ====
+                #endregion
 
                 default:
                     Header("THIS IS NOT IMPLEMENTED, YET!");
@@ -169,14 +173,11 @@ namespace LibreWMS
             } while (!validChoice);
             
             return choice - 1 ;
-           
-            
         }
 
 
             
 
-    }
+    } // end of class
 
-
-}
+}  // end of namespace
