@@ -93,8 +93,8 @@ namespace LibreWMS
                     DB db = new DB();
                     articles = db.GetAllArticles();
                     Header(menuName);
-                    Console.WriteLine(" | Art. nr. | Art. name        | EAN / GTIN    | amnt avlble\t | Location\t | Gross weight\t | Net weight\t |");
-                    Console.WriteLine(" |----------|------------------|---------------|---------------|------------|----------------|-------------|");
+                    Console.WriteLine(" | Art. nr. | Art. name        | EAN / GTIN    | amnt avlble | Location         | Gross weight\t | Net weight\t |");
+                    Console.WriteLine(" |----------|------------------|---------------|-------------|------------------|----------------|-------------|");
                     foreach (var article in articles)
                     {
                         System.Console.WriteLine(article.StockInfo1);

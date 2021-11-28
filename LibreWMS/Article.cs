@@ -47,10 +47,29 @@ namespace LibreWMS
                 {
                     cutArtName = ArticleName[0..14] + "...";
                 }
-                                
+
+                // dynamically set appropriate string length for the output-table's column of amount in stock
+                string? amountInStock = string.Empty;
+                for (int i = 0; i < (11 - ArticleAmountInStock.ToString().Length); i++)
+                {
+                    amountInStock += " ";
+                }
+                amountInStock += ArticleAmountInStock.ToString();
+                // done
+
+                // dynamically set appropriate string length for the output-table's column of stock place
+                string? stockPlace = string.Empty;
+                for (int i = 0; i < (16 - ArticleStockPlace.Length); i++)
+                {
+                    stockPlace += " ";
+                }
+                stockPlace += ArticleStockPlace;
+                // done
+
+                // generate string for the output-table (header is in Menu.cs)                
                 string output = $" | { ArticleNumber.ToString("00000000") } | { cutArtName } " 
-                        + $"| { string.Format("0000000000000", ArticleEANGTIN) } | { ArticleAmountInStock }\t "
-                        + $"| { ArticleStockPlace }\t | { ArticleWeightGross } kg\t | { ArticleWeightNet } kg |"; 
+                        + $"| { string.Format("0000000000000", ArticleEANGTIN) } | { amountInStock } "
+                        + $"| { stockPlace } | { ArticleWeightGross } kg\t | { ArticleWeightNet } kg |"; 
                 
                 return output;
                 
