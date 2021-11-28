@@ -14,12 +14,21 @@ namespace LibreWMS
 
         public List<Article> GetAllArticles()
         {
-            using (MySqlConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
+            try
             {
+                using (MySqlConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
+                {
                 
-                var output = connection.Query<Article>($"select * from Article").ToList();                
-                return output;
+                 var output = connection.Query<Article>($"select * from Article").ToList();                
+                 return output;
+                
+                }
             }
+            catch (System.Exception)
+            {            
+                throw;
+            }
+           
         }
 
         public List<Article> GetArticleByNamePart(string name)
