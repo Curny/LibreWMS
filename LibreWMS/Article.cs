@@ -49,7 +49,7 @@ namespace LibreWMS
                 }
 
                 // dynamically set appropriate string length for the output-table's column of amount in stock
-                string? amountInStock = string.Empty;
+                string amountInStock = string.Empty;
                 for (int i = 0; i < (11 - ArticleAmountInStock.ToString().Length); i++)
                 {
                     amountInStock += " ";
@@ -58,7 +58,7 @@ namespace LibreWMS
                 // done
 
                 // dynamically set appropriate string length for the output-table's column of stock place
-                string? stockPlace = string.Empty;
+                string stockPlace = string.Empty;
                 for (int i = 0; i < (16 - ArticleStockPlace.Length); i++)
                 {
                     stockPlace += " ";
