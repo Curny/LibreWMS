@@ -403,3 +403,7 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+LibreWMS/.vscode/settings.json
+.gitignore
+LibreWMS/NAS.session.sql
+.gitignore
