@@ -5,7 +5,7 @@ namespace LibreWMS
     {
         public long ArticleDBID { get; set; }
         public string ArticleIsActive { get; set; }
-        public long ArticleNumber { get; set; }
+        public long ArticleNr { get; set; }
         public string ArticleEANGTIN { get; set; }
         public string ArticleName { get; set; }
         public int ArticleAmountInStock { get; set; }
@@ -23,7 +23,7 @@ namespace LibreWMS
         {
             get
             {
-                return $"{ ArticleName } { ArticleNumber }";
+                return $"{ ArticleName } { ArticleNr }";
             }
         }
 
@@ -97,7 +97,7 @@ namespace LibreWMS
 
 
                 // generate string for the output-table (header is in Menu.cs)                
-                string output = $" | { ArticleNumber.ToString("00000000") } | { cutArtName } " 
+                string output = $" | { ArticleNr.ToString("00000000") } | { cutArtName } " 
                         + $"| { string.Format("0000000000000", ArticleEANGTIN) } | { amountInStock } "
                         + $"| { stockPlace } | { grossWeightkg } | { netWeightkg } | { isActive } |"; 
                 
@@ -110,7 +110,7 @@ namespace LibreWMS
         {
             get
             {
-                return $"{ArticleName} (Nr: { ArticleNumber }) Gross: { ArticleWeightGross }  Net: { ArticleWeightNet }";
+                return $"{ArticleName} (Nr: { ArticleNr }) Gross: { ArticleWeightGross }  Net: { ArticleWeightNet }";
             }
         }
 
