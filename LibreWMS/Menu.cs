@@ -6,6 +6,7 @@ namespace LibreWMS
 
     public class Menu
     {
+        
         public static string HeaderOfColumnIsActive { get; set; }
         public Menu()
         {
@@ -108,6 +109,25 @@ namespace LibreWMS
                     System.Console.WriteLine($"\n\n\t>>> Total amount of articles in database: { articles.Count.ToString() } <<<");
                     HitAnyKey.ToContinue();
                     Menu backToListMenu = new Menu("List");
+                    break;
+
+                case "List active":
+                    HeaderOfColumnIsActive = "Active";
+                    List<Article> activeArticles = new List<Article>();
+                    DB gaa = new DB();
+                    activeArticles = gaa.GetActiveArticles();
+                    Header(menuName);
+                    
+                    Console.WriteLine($" | Art. nr. | Art. name        | EAN / GTIN    | amnt avlble | Location         |   Gross kgs |     Net kgs | {HeaderOfColumnIsActive} |");
+                    Console.WriteLine(" |----------|------------------|---------------|-------------|------------------|-------------|-------------|--------|");
+                    foreach (var article in activeArticles)
+                    {
+                        System.Console.WriteLine(article.StockInfo1);
+                    }
+                    
+                    System.Console.WriteLine($"\n\n\t>>> Total amount of active articles in database: { activeArticles.Count.ToString() } <<<");
+                    HitAnyKey.ToContinue();
+                    Menu backToListMenu2 = new Menu("List");
                     break;
                 // ==== end of menu search ====
                 #endregion
