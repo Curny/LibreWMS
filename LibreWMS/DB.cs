@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Dapper;
 using System.Data;
@@ -46,6 +47,23 @@ namespace LibreWMS
             catch (System.Exception)
             {            
                 throw;
+            }           
+        }
+
+        public List<Article> GetInactiveArticles()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
+                {
+                
+                 var output = connection.Query<Article>($"select * from Article where ArticleIsActive='no'").ToList();                
+                 return output;                
+                }
+            }
+            catch (System.Exception)
+            {            
+                throw;
             }
            
         }
@@ -70,6 +88,65 @@ namespace LibreWMS
             }
         }
 
+
+        public void AddNewArticle(Article new)
+        {
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                using (IDbConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
+                {
+                    
+                    var sqlStatement = @"
+                    INSERT INTO Article
+                        (ArticleIsActive,
+                        ArticleNr,
+                        ArticleEANGTIN,
+                        ArticleName,
+                        ArticleAmountInStock,
+                        ArticleStockPlace,
+                        ArticleDescription,
+                        ArticleCreatedOnDateTime,
+                        ArticleCreatedBy,                        
+                        ArticleWeightNet,
+                        ArticleWeightGross,
+                        ArticleWeightTara,
+                        ArticleLength,
+                        ArticleWidth,
+                        ArticleHeight,
+                        ArticleVolume,
+                        ArticleMeasureUnit,
+                        ArticleAmountWarning,
+                        ArticleAmountReorderLevel,
+                        ArticleGroupID)
+
+                        VALUES (@ArticleIsActive,
+                                @ArticleNr,
+                                @ArticleEANGTIN,
+                                @ArticleName,
+                                @ArticleAmountInStock,
+                                @ArticleStockPlace,
+                                @ArticleDescription,
+                                @ArticleCreatedOnDateTime,
+                                @ArticleCreatedBy,
+                                @ArticleWeightNet,
+                                @ArticleWeightGross,
+                                @ArticleWeightTara,
+                                @ArticleLength,
+                                @ArticleWidth,
+                                @ArticleHeight,
+                                @ArticleVolume,
+                                @ArticleMeasureUnit,
+                                @ArticleAmountWarning,
+                                @ArticleAmountReorderLevel,
+                                @ArticleGroupID)
+                    ";
+
+                    connection.Execute(sqlStatement, new);
+                
+                }
+            }).Start();
+        }
         /* TODO
         public void InsertPerson(string firstName, string lastName, string emailAddress, string phoneNumber)
         {
