@@ -6,12 +6,14 @@ namespace LibreWMS
 
     public class Menu
     {
+        public static string HeaderOfColumnIsActive { get; set; }
         public Menu()
         {
         }
 
         public Menu(string menuName)
         {
+            
             switch (menuName)
             {
                 #region MainMenu
@@ -90,12 +92,14 @@ namespace LibreWMS
                 #region MenuSearch
                 // ---- menu search ----
                 case "List all articles":
+                    HeaderOfColumnIsActive = "Active";
                     List<Article> articles = new List<Article>();
                     DB db = new DB();
                     articles = db.GetAllArticles();
                     Header(menuName);
-                    Console.WriteLine(" | Art. nr. | Art. name        | EAN / GTIN    | amnt avlble | Location         |   Gross kgs |     Net kgs |");
-                    Console.WriteLine(" |----------|------------------|---------------|-------------|------------------|-------------|-------------|");
+                    
+                    Console.WriteLine($" | Art. nr. | Art. name        | EAN / GTIN    | amnt avlble | Location         |   Gross kgs |     Net kgs | {HeaderOfColumnIsActive} |");
+                    Console.WriteLine(" |----------|------------------|---------------|-------------|------------------|-------------|-------------|--------|");
                     foreach (var article in articles)
                     {
                         System.Console.WriteLine(article.StockInfo1);

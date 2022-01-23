@@ -66,6 +66,16 @@ namespace LibreWMS
                 stockPlace += ArticleStockPlace;
                 // done
 
+                // dynamically set appropritate string length for Article is active yes or no
+                string isActive = ArticleIsActive;
+                
+                for (int i = ArticleIsActive.Length; i < Menu.HeaderOfColumnIsActive.Length; i++)
+                {
+                    isActive += " ";
+                }                                
+                //done
+
+
                 // dynamically set appropriate string length for the output-table's column of gross weight
                 string grossWeightkg = string.Empty;
                 for (int i = 0; i < (11 - ArticleWeightGross.ToString().Length); i++)
@@ -84,10 +94,12 @@ namespace LibreWMS
                 netWeightkg += ArticleWeightNet.ToString();
                 // done
 
+
+
                 // generate string for the output-table (header is in Menu.cs)                
                 string output = $" | { ArticleNumber.ToString("00000000") } | { cutArtName } " 
                         + $"| { string.Format("0000000000000", ArticleEANGTIN) } | { amountInStock } "
-                        + $"| { stockPlace } | { grossWeightkg } | { netWeightkg } |"; 
+                        + $"| { stockPlace } | { grossWeightkg } | { netWeightkg } | { isActive } |"; 
                 
                 return output;
                 

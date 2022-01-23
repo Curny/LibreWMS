@@ -31,6 +31,25 @@ namespace LibreWMS
            
         }
 
+        public List<Article> GetActiveArticles()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
+                {
+                
+                 var output = connection.Query<Article>($"select * from Article where ArticleIsActive='yes'").ToList();                
+                 return output;
+                
+                }
+            }
+            catch (System.Exception)
+            {            
+                throw;
+            }
+           
+        }
+
         public List<Article> GetArticleByNamePart(string name)
         {
             using (MySqlConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
