@@ -89,7 +89,7 @@ namespace LibreWMS
         }
 
 
-        public void AddNewArticle(Article new)
+        public void AddNewArticle(Article newArt)
         {
             new Thread(() =>
             {
@@ -142,7 +142,7 @@ namespace LibreWMS
                                 @ArticleGroupID)
                     ";
 
-                    connection.Execute(sqlStatement, new);
+                    connection.Execute(sqlStatement, newArt);
                 
                 }
             }).Start();
