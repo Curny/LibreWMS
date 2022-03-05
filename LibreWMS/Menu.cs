@@ -134,14 +134,14 @@ namespace LibreWMS
                     HeaderOfColumnIsActive = "Active";
                     List<Article> inactiveArticles = new List<Article>();
                     DB gia = new DB();
-                    activeArticles = gia.GetActiveArticles();
+                    inactiveArticles = gia.GetInactiveArticles();
                     Header(menuName);
                     
                     Console.WriteLine($" | Art. nr. | Art. name        | EAN / GTIN    | amnt avlble | Location         |   Gross kgs |     Net kgs | {HeaderOfColumnIsActive} |");
                     Console.WriteLine(" |----------|------------------|---------------|-------------|------------------|-------------|-------------|--------|");
-                    foreach (var article in inactiveArticles)
+                    foreach (var iarticle in inactiveArticles)
                     {
-                        System.Console.WriteLine(article.StockInfo1);
+                        System.Console.WriteLine(iarticle.StockInfo1);
                     }
                     
                     System.Console.WriteLine($"\n\n\t>>> Total amount of active articles in database: { inactiveArticles.Count.ToString() } <<<");
@@ -164,8 +164,10 @@ namespace LibreWMS
                     newArticle.ArticleName = Console.ReadLine();
                     Console.Write(" >> Article description : ");
                     newArticle.ArticleDescription = Console.ReadLine();
-                    Console.Write(" >> Article EAN / GTIN  : ");
-                    newArticle.ArticleEANGTIN = Console.ReadLine();
+                    Console.Write(" >> Article EAN / GTIN (max. 13 chars)  : ");
+                    string inputEAN = Console.ReadLine();
+                    _ = inputEAN.Length <= 13 ? newArticle.ArticleEANGTIN = inputEAN : newArticle.ArticleEANGTIN = inputEAN[0..13];
+                    //newArticle.ArticleEANGTIN = Console.ReadLine();
                     Console.Write(" >> Article stock place : ");
                     newArticle.ArticleStockPlace = Console.ReadLine();
                     Console.Write(" >> Article gross weight: ");

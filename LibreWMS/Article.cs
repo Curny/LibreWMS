@@ -34,7 +34,7 @@ namespace LibreWMS
                 
                 string cutArtName = string.Empty;
 
-                if (ArticleName.Length < 15)
+                if (!string.IsNullOrEmpty(ArticleName) && ArticleName.Length < 15)
                 {
                     int add = 15 - ArticleName.Length;
                     cutArtName = ArticleName;
@@ -43,9 +43,40 @@ namespace LibreWMS
                         cutArtName += " ";
                     }
                 }
-                else if (ArticleName.Length > 15)
+                else if (!string.IsNullOrEmpty(ArticleName) && ArticleName.Length > 15)
                 {
                     cutArtName = ArticleName[0..14] + "...";
+                }
+                else if (string.IsNullOrEmpty(ArticleName))
+                {
+                    cutArtName = "NO ARTICLE NAME";
+                }
+                else if (ArticleName.Length == 15)
+                {
+                    cutArtName = ArticleName + " ";
+                }
+
+                string cutEanGtin = string.Empty;
+                if (!string.IsNullOrEmpty(ArticleEANGTIN) && ArticleEANGTIN.Length < 13)
+                {
+                    int add = 13 - ArticleEANGTIN.Length;
+                    cutEanGtin = ArticleEANGTIN;
+                    for (int i = ArticleEANGTIN.Length; i < 13; i++)
+                    {
+                        cutEanGtin += " ";
+                    }
+                }
+                else if (!string.IsNullOrEmpty(ArticleEANGTIN) && ArticleEANGTIN.Length > 13)
+                {
+                    cutEanGtin = ArticleEANGTIN[0..10] + "..."; 
+                }
+                else if (string.IsNullOrEmpty(ArticleEANGTIN))
+                {
+                    cutEanGtin = "0000000000000";
+                }
+                else if (ArticleEANGTIN.Length == 13)
+                {
+                    cutEanGtin = ArticleEANGTIN;
                 }
 
                 // dynamically set appropriate string length for the output-table's column of amount in stock
@@ -98,7 +129,7 @@ namespace LibreWMS
 
                 // generate string for the output-table (header is in Menu.cs)                
                 string output = $" | { ArticleNr.ToString("00000000") } | { cutArtName } " 
-                        + $"| { string.Format("0000000000000", ArticleEANGTIN) } | { amountInStock } "
+                        + $"| { cutEanGtin } | { amountInStock } "
                         + $"| { stockPlace } | { grossWeightkg } | { netWeightkg } | { isActive } |"; 
                 
                 return output;
