@@ -186,6 +186,33 @@ namespace LibreWMS
             }
            
         }
+
+        public void AddNewUser(User newUser)
+        {
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                using (IDbConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
+                {
+                    
+                    var sqlStatement = @"
+                    INSERT INTO Users
+                        (UserName,
+                        UserIsActive,
+                        RoleName,
+                        UserPW)
+
+                        VALUES (@UserName,
+                                @UserIsActive,
+                                @RoleName,
+                                @UserPW)
+                    ";
+
+                    connection.Execute(sqlStatement, newUser);
+                
+                }
+            }).Start();
+        }
         #endregion
 
         /* TODO
