@@ -65,7 +65,7 @@ namespace LibreWMS
             return $"LibreWMS { libreWMSver } PreAlpha";
 
             // Version history:
-            // 0.1.1.0: Cleanup, Added User.cs
+            // 2022-03-26:  0.1.1.0     Cleanup, Added User.cs
             
         }
     }
