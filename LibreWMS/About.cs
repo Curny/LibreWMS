@@ -1,9 +1,4 @@
-using System;
-
-namespace LibreWMS
-{
-
-    /* 
+/* 
     LibreWMS - a free, open warehouse management program
     Copyright (C) 2021  Willy Weinmann
 
@@ -20,7 +15,11 @@ namespace LibreWMS
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>. 
     */
+    
+using System;
 
+namespace LibreWMS
+{
     public static class About
     {
         public static string LibreWMS()

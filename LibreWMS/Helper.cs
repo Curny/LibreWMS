@@ -61,8 +61,11 @@ namespace LibreWMS
 
             // I do this because on Mac and Linux the Version number is not displayed correctly otherwise.
             // have to find out why later, it's not so important....
-            Version libreWMSver = new Version("0.1.0.0");
+            Version libreWMSver = new Version("0.1.1.0");
             return $"LibreWMS { libreWMSver } PreAlpha";
+
+            // Version history:
+            // 0.1.1.0: Cleanup, Added User.cs
             
         }
     }

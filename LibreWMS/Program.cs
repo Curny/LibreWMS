@@ -1,13 +1,25 @@
-﻿using System;
+﻿/* 
+    LibreWMS - a free, open warehouse management program
+    Copyright (C) 2021  Willy Weinmann
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>. 
+    */
+
+using System;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;
-
-// WHAT HAS BEEN DONE LATELY:
-//
-// 2021-11-24, Curny:
-// Menu expanded
-// Menu Search/List all articles ->  I started to format theoutput
 
 namespace LibreWMS
 {
@@ -15,44 +27,10 @@ namespace LibreWMS
     {
         static void Main(string[] args)
         {
+            // TODO:  User-Login with Password-Check
+            
             Console.ForegroundColor = ConsoleColor.White;
             Menu main = new Menu("Main");
-
-            
-            // all that in the comment is some trial-code from the very first runs... will be removed later :)))
-            //
-            //Console.WriteLine(Helper.GetVersion());
-            //StringBuilder sb = new StringBuilder();
-            //for (int i = 0; i < args.Length; i++)
-            //{
-            //    sb.Append(args[i]);
-            //}
-            //Console.WriteLine($"Aufruf: { sb.ToString() }");
-
-            //Console.WriteLine($"ConnectionString: { Helper.CnnVal("SampleDB") }");
-            //List<Article> articles = new List<Article>();
-            //Console.Write("Enter Article name: ");
-            //string request = Console.ReadLine();
-
-
-            //DB db = new DB();
-            ////articles = db.GetArticleByNamePart(request);
-            //articles = db.GetArticleByExactName(request);
-
-            //foreach (var article in articles)
-            //{
-
-            //        Console.WriteLine(article.WeightInfo);
-
-            //}
-
-            
-            
-
-
-            //article = db.GetArticle(request);
-
-            //Console.WriteLine(article.ToString());
 
         }
     }
