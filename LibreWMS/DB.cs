@@ -15,7 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>. 
     */
-    
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +30,7 @@ namespace LibreWMS
 {
     public class DB
     {
-
+        #region Articles
         public List<Article> GetAllArticles()
         {
             try
@@ -165,6 +165,29 @@ namespace LibreWMS
                 }
             }).Start();
         }
+        #endregion
+
+        #region Users
+        public List<User> GetUsersFromDatabase()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
+                {
+                
+                 var output = connection.Query<User>($"select * from Users").ToList();                
+                 return output;
+                
+                }
+            }
+            catch (System.Exception)
+            {            
+                throw;
+            }
+           
+        }
+        #endregion
+
         /* TODO
         public void InsertPerson(string firstName, string lastName, string emailAddress, string phoneNumber)
         {

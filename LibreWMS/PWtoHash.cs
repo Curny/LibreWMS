@@ -29,7 +29,7 @@ namespace LibreWMS
     /// </summary>
     public class PWtoHash
     {
-        public string EncryptToMD5(string salt)
+        public static string EncryptToMD5(string salt)
         {
             byte[] hash1;
             using (MD5 md5 = MD5.Create())

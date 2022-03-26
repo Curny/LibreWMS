@@ -28,7 +28,7 @@ namespace LibreWMS
         static void Main(string[] args)
         {
             // TODO:  User-Login with Password-Check
-            
+            Login.AskForCredentials();
             Console.ForegroundColor = ConsoleColor.White;
             Menu main = new Menu("Main");
 
