@@ -1,6 +1,6 @@
 /* 
     LibreWMS - a free, open warehouse management program
-    Copyright (C) 2021  Willy Weinmann
+    Copyright (C) 2021, 2022  Willy Weinmann
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ namespace LibreWMS
             string infoText = 
                     @"
                     LibreWMS - a free, open warehouse management program
-                    Copyright (C) 2021  Willy Weinmann
+                    Copyright (C) 2021, 2022  Willy Weinmann
                     
                     >> GNU GENERAL PUBLIC LICENSE Version 3 <<
 
