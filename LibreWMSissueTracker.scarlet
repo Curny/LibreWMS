@@ -1,0 +1,50 @@
+{
+  "folders" : [
+    {
+      "issueIDs" : [
+        "07956F6C-2FA6-457D-A0E2-28C48C32B483"
+      ],
+      "title" : "Bug",
+      "identifier" : "A34CFA19-FDF9-4418-B595-FCA11A79AB15",
+      "color" : "ffff3b30"
+    },
+    {
+      "issueIDs" : [
+
+      ],
+      "title" : "CRITICAL",
+      "identifier" : "6E098AFE-C777-4137-9225-8460C7ECE4FF",
+      "color" : "ffff3b30"
+    },
+    {
+      "issueIDs" : [
+        "61611352-F434-41B2-B3CF-F9CE3E775934"
+      ],
+      "title" : "Enhancement",
+      "identifier" : "AFB92758-246E-477C-B17D-B6D3DD4567DC",
+      "color" : "ffff3b30"
+    }
+  ],
+  "issues" : [
+    {
+      "number" : 1,
+      "closed" : false,
+      "title" : "Hit any key to continue -> gives wrong message",
+      "created" : 671101202.46161902,
+      "identifier" : "07956F6C-2FA6-457D-A0E2-28C48C32B483",
+      "modified" : 671101306.09423101,
+      "body" : "",
+      "due" : 671101202.46161902
+    },
+    {
+      "number" : 2,
+      "closed" : false,
+      "title" : "Get it working (test-issue)",
+      "created" : 671101331.33845901,
+      "identifier" : "61611352-F434-41B2-B3CF-F9CE3E775934",
+      "modified" : 671101377.36811996,
+      "body" : "",
+      "due" : 671101331.33845997
+    }
+  ]
+}
