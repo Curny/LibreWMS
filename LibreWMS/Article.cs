@@ -297,7 +297,7 @@ namespace LibreWMS
                 System.Console.WriteLine(iarticle.StockInfo1);
             }
 
-            System.Console.WriteLine($"\n\n\t>>> Total amount of active articles in database: { inactiveArticles.Count.ToString() } <<<");
+            System.Console.WriteLine($"\n\n\t>>> Total amount of inactive articles in database: { inactiveArticles.Count.ToString() } <<<");
         }
 
     } // end of class
