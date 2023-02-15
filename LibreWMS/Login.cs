@@ -58,14 +58,29 @@ namespace LibreWMS
             // Debugging:
             // Console.Write($"\n\n PW-Hash from console: {PWtoHash.EncryptToMD5(password)}");
             // Console.Write($"\n\n PW-Hash from DB: {usersInDatabase.Where(u => u.UserName == username).Select(x => x.UserPW.ToString()).First()}");
-            if(!PWtoHash.IsTheSame(
+            bool userDoesExist = true;
+            foreach (var isuser in usersInDatabase)
+            {
+                if (isuser.UserName == username)
+                {
+                    userDoesExist = true;
+                    break;
+                }
+                else
+                {
+                    userDoesExist = false;
+                }
+            }
+
+            if(!userDoesExist || (userDoesExist && !PWtoHash.IsTheSame(
                 PWtoHash.EncryptToMD5(password), 
                 usersInDatabase.Where(u => u.UserName == username).Select(x => x.UserPW.ToString()).First()
-                ))
+                )))
             {
-                Console.WriteLine("\n\n  ERROR: Wrong password! Aborting...\n");
+               Console.WriteLine("\n\n  ERROR: Wrong username or password! Aborting...\n");
                 Environment.Exit(1);
             }
+            
             
         }
 
