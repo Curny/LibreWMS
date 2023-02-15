@@ -26,6 +26,7 @@ namespace LibreWMS
             dirtyInput.Add("DROP");
             dirtyInput.Add("ERASE");
             dirtyInput.Add(">");
+            dirtyInput.Add("=");
 
             foreach (var word in dirtyInput)
             {
