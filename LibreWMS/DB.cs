@@ -57,7 +57,7 @@ namespace LibreWMS
                 using (MySqlConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
                 {
                 
-                 var output = connection.Query<Article>($"select * from Article where ArticleIsActive='yes'").ToList();                
+                 var output = connection.Query<Article>($"select * from Article where ArticleIsActive='1'").ToList();                
                  return output;
                 
                 }
@@ -75,7 +75,7 @@ namespace LibreWMS
                 using (MySqlConnection connection = new MySqlConnection(Helper.CnnVal("SampleDB")))
                 {
                 
-                 var output = connection.Query<Article>($"select * from Article where ArticleIsActive='no'").ToList();                
+                 var output = connection.Query<Article>($"select * from Article where ArticleIsActive='0'").ToList();                
                  return output;                
                 }
             }
