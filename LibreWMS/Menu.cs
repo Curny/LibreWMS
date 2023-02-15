@@ -115,7 +115,7 @@ namespace LibreWMS
                     Header(menuName);
                     Article.ListAll();                    
                     HitAKey.EnterToContinue();
-                    Menu backToListMenu = new Menu("List");
+                    Menu backToListMenu = new Menu("Search");
                     break;
 
                 case "List active":
@@ -123,7 +123,7 @@ namespace LibreWMS
                     Header(menuName);
                     Article.ListActive();
                     HitAKey.EnterToContinue();
-                    Menu backToListMenu2 = new Menu("List");
+                    Menu backToListMenu2 = new Menu("Search");
                     break;
 
                 case "List inactive":
@@ -131,7 +131,7 @@ namespace LibreWMS
                     Header(menuName);
                     Article.ListInactive();
                     HitAKey.EnterToContinue();
-                    Menu backToListMenu3 = new Menu("List");
+                    Menu backToListMenu3 = new Menu("Search");
                     break;
                 // ==== end of menu search ====
                 #endregion
@@ -196,7 +196,7 @@ namespace LibreWMS
             int choice = 0;
             do
             {
-                Console.Write("\n Select menu number: ");
+                Console.Write($"\n Select menu number: ");
                 string input = Console.ReadLine();
 
                 if (!string.IsNullOrEmpty(input) && int.TryParse(input, out int c))
