@@ -114,7 +114,7 @@ namespace LibreWMS
                     HeaderOfColumnIsActive = "Active";
                     Header(menuName);
                     Article.ListAll();                    
-                    HitAnyKey.ToContinue();
+                    HitAKey.EnterToContinue();
                     Menu backToListMenu = new Menu("List");
                     break;
 
@@ -122,7 +122,7 @@ namespace LibreWMS
                     HeaderOfColumnIsActive = "Active";
                     Header(menuName);
                     Article.ListActive();
-                    HitAnyKey.ToContinue();
+                    HitAKey.EnterToContinue();
                     Menu backToListMenu2 = new Menu("List");
                     break;
 
@@ -130,7 +130,7 @@ namespace LibreWMS
                     HeaderOfColumnIsActive = "Active";
                     Header(menuName);
                     Article.ListInactive();
-                    HitAnyKey.ToContinue();
+                    HitAKey.EnterToContinue();
                     Menu backToListMenu3 = new Menu("List");
                     break;
                 // ==== end of menu search ====
@@ -140,7 +140,7 @@ namespace LibreWMS
                 case "Add new":
                     Header(menuName);
                     Article.Create();
-                    HitAnyKey.ToContinue();
+                    HitAKey.EnterToContinue();
                     Menu backToArticleMenu = new Menu("Article");
                     break;  
 
@@ -151,21 +151,21 @@ namespace LibreWMS
                 case "Users":
                     Header(menuName);
                     // TODO:  User administration
-                    HitAnyKey.ToContinue();
+                    HitAKey.EnterToContinue();
                     Menu backToSystemFromUsers = new Menu("System");
                     break;  
 
                 case "About":
                     Header("About LibreWMS");                
                     Console.WriteLine(About.LibreWMS());
-                    HitAnyKey.ToContinue();
+                    HitAKey.EnterToContinue();
                     Menu backToSystemFromAbout = new Menu("System");
                     break;
 
                 case "Connection String":
                     Header("Connection string info");
                     Console.WriteLine($"Connection string for the SQL database:\n\n\t { Helper.CnnVal("SampleDB") }");
-                    HitAnyKey.ToContinue();
+                    HitAKey.EnterToContinue();
                     Menu backToSystemFromConStr = new Menu("System");
                     break;
                 // ==== end of menu system ====
@@ -178,7 +178,7 @@ namespace LibreWMS
                 default:
                     Header("THIS IS NOT IMPLEMENTED, YET!");
                     Console.WriteLine("This functionality has not been implemented, yet.");
-                    HitAnyKey.ToContinue();
+                    HitAKey.EnterToContinue();
                     Menu backToMainByDefault = new Menu("Main");
                     break;
             }

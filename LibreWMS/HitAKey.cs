@@ -21,11 +21,11 @@ namespace LibreWMS
     along with this program.  If not, see <https://www.gnu.org/licenses/>. 
     */
 
-    public static class HitAnyKey
+    public static class HitAKey
     {
-        public static void ToContinue()
+        public static void EnterToContinue()
         {
-            Console.Write("\n\nHit any key to continue.");
+            Console.Write("\n\nHit ENTER to continue.");
             Console.ReadLine();
         }
         
